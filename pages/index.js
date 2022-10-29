@@ -47,7 +47,7 @@ Home.prototype = {
   githubProfileData: PropTypes.object.isRequired,
 };
 
-export async function getServerSideProps(_) {
+async function getServerSideProps(_) {
   const githubProfileData = await fetch(
     `https://api.github.com/users/${openSource.githubUserName}`
   ).then((res) => res.json());
