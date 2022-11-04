@@ -11,7 +11,6 @@ import SEO from "../components/SEO";
 import Copy from "../components/Copy";
 
 export default function Home({ githubProfileData, data }) {
-  console.log(data);
   return (
     <div>
       <SEO
@@ -47,16 +46,27 @@ Home.prototype = {
   githubProfileData: PropTypes.object.isRequired,
 };
 
-async function getServerSideProps(_) {
-  const githubProfileData = await fetch(
-    `https://api.github.com/users/${openSource.githubUserName}`
-  ).then((res) => res.json());
+export const getServerSideProps = async (_) => {
+  console.log("Hello");
+  try {
+    let githubProfileData = await fetch(
+      `https://api.github.com/users/${openSource.githubUserName}`
+    )
+    let githubProfileDataJSON = await githubProfileData.json()
+    
+    let data = await fetch(
+      "https://script.google.com/macros/s/AKfycbyi7oyqDPZslg9TofXcevxlPMoED0gPTBKoxm9ukNfCMhI3TfOAtD6vH9EPu6EUSJUIeg/exec"
+    )
+    let dataJSON = await data.json()
+    return {
+      props: { githubProfileData: githubProfileDataJSON, data: dataJSON },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: { githubProfileData: {}, data: {} },
+    };
+  }
 
-  const data = await fetch(
-    "https://script.google.com/macros/s/AKfycbzmHz-BVIkLBHV4ObPrDLmXfqDOn92xEzbmyMIbx_jONf6WiH0wIUICyOdDX4fJB9EwHg/exec"
-  ).then((res) => res.json());
 
-  return {
-    props: { githubProfileData, data },
-  };
 }
