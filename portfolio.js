@@ -6,7 +6,7 @@ export const greetings = {
 	description:
 "I am a 4th year student currently pursuing B.Tech in I.T. from Charotar University of Science and Technology. I am interested in domains of Cloud, DevOps & CyberSecurity. Right now, I have some experience of working with CSPs like AWS as well as GCP. I am also preparing for AWS Solutions Architect. ",
 		resumeLink:
-		"https://drive.google.com/file/d/1pryL3BZQLue5T1SU7R5caVWgFcWpxWgb/view?usp=drivesdk",
+		"https://drive.google.com/file/d/1NV2HgQX1WmpiEVJVtT0lWrkbPBnYSqlv/view?usp=sharing",
 };
 
 export const openSource = {
@@ -71,7 +71,7 @@ export const skillsSection = {
 export const SkillBars = [
 	{
 		Stack: "Cloud Computing", //Insert stack or technology you have experience in
-		progressPercentage: "70", //Insert relative proficiency in percentage
+		progressPercentage: "75", //Insert relative proficiency in percentage
 	},
 	{
 		Stack: "Mobile App Development with Flutter",
